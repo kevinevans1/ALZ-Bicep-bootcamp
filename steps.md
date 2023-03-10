@@ -150,3 +150,13 @@ az deployment mg create --name $NAME --location $LOCATION --management-group-id 
 
 ## STEP 9 Spoke Networking
 
+```
+$dateYMD=$(Get-Date -Format "yyyyMMddTHHmmss")
+$NAME="alz-HubPeeredSpoke-${dateYMD}"
+$LOCATION="canadacentral"
+$MGID="mralzex"
+$TEMPLATEFILE="infra-as-code/bicep/orchestration/hubPeeredSpoke/hubPeeredSpoke.bicep"
+$PARAMETERS="@infra-as-code/bicep/orchestration/hubPeeredSpoke/parameters/hubPeeredSpoke.parameters.all_mrexample.json"
+
+az deployment mg create --name $NAME --location $LOCATION --management-group-id $MGID --template-file $TEMPLATEFILE --parameters $PARAMETERS
+```
