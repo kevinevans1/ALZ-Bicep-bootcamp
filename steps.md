@@ -101,8 +101,8 @@ $dateYMD=$(Get-Date -Format "yyyyMMddTHHmmss")
 $NAME="alz-SubPlacementAll-${dateYMD}"
 $LOCATION="canadacentral"
 $TopLevelMGPrefix="mralzex"
-TEMPLATEFILE="infra-as-code/bicep/orchestration/subPlacementAll/subPlacementAll.bicep"
-PARAMETERS="@infra-as-code/bicep/orchestration/subPlacementAll/parameters/subPlacementAll.parameters.all.json"
+$TEMPLATEFILE="infra-as-code/bicep/orchestration/subPlacementAll/subPlacementAll.bicep"
+$PARAMETERS="@infra-as-code/bicep/orchestration/subPlacementAll/parameters/subPlacementAll.parameters.all_mrexample.json"
 
 az deployment mg create --name $NAME --location $LOCATION --management-group-id $TopLevelMGPrefix --template-file $TEMPLATEFILE --parameters $PARAMETERS
 ```
