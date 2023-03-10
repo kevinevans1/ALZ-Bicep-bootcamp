@@ -21,7 +21,7 @@
       "value": "mralzex-automation-account"
     },
     "parMsDefenderForCloudEmailSecurityContact": {
-      "value": "security_contact@replace_me.com"
+      "value": "test@test.com"
     },
     "parDdosProtectionPlanId": {
       "value": ""
