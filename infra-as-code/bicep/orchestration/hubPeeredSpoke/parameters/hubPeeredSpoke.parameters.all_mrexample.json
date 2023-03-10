@@ -1,0 +1,59 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "parLocation": {
+      "value": "canadacentral"
+    },
+    "parTopLevelManagementGroupPrefix": {
+      "value": "mralzex"
+    },
+    "parTopLevelManagementGroupSuffix": {
+      "value": ""
+    },
+    "parPeeredVnetSubscriptionId": {
+      "value": "dae2aacc-b574-4d3b-b21a-1ecc5e43a223" //sandbox
+    },
+    "parPeeredVnetSubscriptionMgPlacement": {
+      "value": "mralzex-platform-connectivity"
+    },
+    "parDdosProtectionPlanId": {
+      "value": ""
+    },
+    "parSpokeNetworkName": {
+      "value": "mralzex-spoke1-canadacentral"
+    },
+    "parSpokeNetworkAddressPrefix": {
+      "value": "10.202.0.0/24"
+    },
+    "parDnsServerIps": {
+      "value": []
+    },
+    "parNextHopIpAddress": {
+      "value": "10.100.255.4"
+    },
+    "parDisableBgpRoutePropagation": {
+      "value": false
+    },
+    "parSpoketoHubRouteTableName": {
+      "value": "rtb-spoke-to-hub"
+    },
+    "parHubVirtualNetworkId": {
+      "value": "/subscriptions/8ec5ae04-56b8-4438-b436-ad88abe580dd/resourceGroups/rg-mralzex-hub-networking-001/providers/Microsoft.Network/virtualNetworks/mralzex-hub-canadacentral"
+    },
+    "parAllowSpokeForwardedTraffic": {
+      "value": false
+    },
+    "parAllowHubVPNGatewayTransit": {
+      "value": true
+    },
+    "parTags": {
+      "value": {
+        "Environment": "POC"
+      }
+    },
+    "parTelemetryOptOut": {
+      "value": false
+    }
+  }
+}
