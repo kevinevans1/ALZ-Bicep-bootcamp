@@ -10,6 +10,16 @@ $PARAMETERS="@infra-as-code/bicep/modules/managementGroups/parameters/management
 az deployment tenant create --name $NAME --location $LOCATION --template-file $TEMPLATEFILE --parameters $PARAMETERS
 ```
 
+## STEP2 Custom Policy Definitions
+
+***Optional***
+
+## STEP3 Custom Role Definitions
+
+***Optional***
+
+
+
 ## STEP4 Logging & Sentinel
 
 ```
@@ -66,3 +76,39 @@ az group create --location $LOCATION --name $GROUP
 az deployment group create --name $NAME --resource-group $GROUP --template-file $TEMPLATEFILE --parameters $PARAMETERS
 
 ```
+
+## STEP 6 Role Assignment 
+
+Per assignment, not one module call for all assignments:
+
+See parameters folder in `infra-as-code/bicep/modules/roleAssignments/parameters/` for all options.
+
+```
+$dateYMD=$(Get-Date -Format "yyyyMMddTHHmmss")
+$NAME="alz-RoleAssignmentsDeployment-${dateYMD}"
+$LOCATION="canadacentral"
+$TopLevelMGPrefix="mralzex"
+$TEMPLATEFILE="infra-as-code/bicep/modules/roleAssignments/roleAssignmentManagementGroup.bicep"
+$PARAMETERS="@infra-as-code/bicep/modules/roleAssignments/parameters/roleAssignmentManagementGroup.servicePrincipal.parameters.all.json"
+
+az deployment mg create --name $NAME --location $LOCATION --management-group-id $TopLevelMGPrefix --template-file $TEMPLATEFILE --parameters $PARAMETERS
+```
+
+## STEP 7 Subscription Placement
+
+```
+$dateYMD=$(Get-Date -Format "yyyyMMddTHHmmss")
+$NAME="alz-SubPlacementAll-${dateYMD}"
+$LOCATION="canadacentral"
+$TopLevelMGPrefix="mralzex"
+TEMPLATEFILE="infra-as-code/bicep/orchestration/subPlacementAll/subPlacementAll.bicep"
+PARAMETERS="@infra-as-code/bicep/orchestration/subPlacementAll/parameters/subPlacementAll.parameters.all.json"
+
+az deployment mg create --name $NAME --location $LOCATION --management-group-id $TopLevelMGPrefix --template-file $TEMPLATEFILE --parameters $PARAMETERS
+```
+
+## STEP 8 Built-In and Custom Policy Assignments
+
+
+## STEP 9 Spoke Networking
+
