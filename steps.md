@@ -27,8 +27,19 @@ az deployment mg create --name $NAME --location $LOCATION --management-group-id 
 
 ## STEP3 Custom Role Definitions
 
-***Optional***
+Adding some custom roles recommended by ALZ
 
+```
+$MGID="mralzex"
+$LOCATION="canadacentral"
+
+$dateYMD=$(Get-Date -Format "yyyyMMddTHHmmss")
+$NAME="alz-CustomRoleDefsDeployment-${dateYMD}"
+$TEMPLATEFILE="infra-as-code/bicep/modules/customRoleDefinitions/customRoleDefinitions.bicep"
+$PARAMETERS="@infra-as-code/bicep/modules/customRoleDefinitions/parameters/customRoleDefinitions.parameters.all_mrexample.json"
+
+az deployment mg create --name NAME --location $LOCATION --management-group-id $MGID --template-file $TEMPLATEFILE --parameters $PARAMETERS
+```
 
 
 ## STEP4 Logging & Sentinel
