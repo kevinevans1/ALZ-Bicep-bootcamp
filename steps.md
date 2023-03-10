@@ -109,6 +109,17 @@ az deployment mg create --name $NAME --location $LOCATION --management-group-id 
 
 ## STEP 8 Built-In and Custom Policy Assignments
 
+```
+$dateYMD=$(Get-Date -Format "yyyyMMddTHHmmss")
+$NAME="alz-alzPolicyAssignmentDefaults-${dateYMD}"
+$LOCATION="canadacentral"
+$TopLevelMGPrefix="mralzex"
+$TEMPLATEFILE="infra-as-code/bicep/modules/policy/assignments/alzDefaults/alzDefaultPolicyAssignments.bicep"
+$PARAMETERS="@infra-as-code/bicep/modules/policy/assignments/alzDefaults/parameters/alzDefaultPolicyAssignments.parameters.all_mrexample.json"
+
+az deployment mg create --name $NAME --location $LOCATION --management-group-id $TopLevelMGPrefix --template-file $TEMPLATEFILE --parameters $PARAMETERS
+
+```
 
 ## STEP 9 Spoke Networking
 

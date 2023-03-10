@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "parTopLevelManagementGroupPrefix": {
+      "value": "mralzex"
+    },
+    "parTopLevelManagementGroupSuffix": {
+      "value": ""
+    },
+    "parLogAnalyticsWorkSpaceAndAutomationAccountLocation": {
+      "value": "canadacentral"
+    },
+    "parLogAnalyticsWorkspaceResourceId": {
+      "value": "/subscriptions/cc99c7cc-f6e0-4034-87c0-dd02d47a1116/resourceGroups/rg-mralzex-logging-001/providers/Microsoft.OperationalInsights/workspaces/mralzex-log-analytics"
+    },
+    "parLogAnalyticsWorkspaceLogRetentionInDays": {
+      "value": "365"
+    },
+    "parAutomationAccountName": {
+      "value": "mralzex-automation-account"
+    },
+    "parMsDefenderForCloudEmailSecurityContact": {
+      "value": "security_contact@replace_me.com"
+    },
+    "parDdosProtectionPlanId": {
+      "value": ""
+    },
+    "parPrivateDnsResourceGroupId": {
+      "value": "/subscriptions/8ec5ae04-56b8-4438-b436-ad88abe580dd/resourceGroups/rg-mralzex-hub-networking-001"
+    },
+    "parDisableAlzDefaultPolicies": {
+      "value": false
+    },
+    "parTelemetryOptOut": {
+      "value": false
+    }
+  }
+}
