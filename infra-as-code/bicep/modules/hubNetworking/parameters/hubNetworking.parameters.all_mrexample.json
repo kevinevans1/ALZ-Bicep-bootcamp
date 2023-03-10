@@ -52,7 +52,7 @@
       "value": false
     },
     "parDdosPlanName": {
-      "value": ""
+      "value": "none" // should be allowed to be empty
     },
     "parAzFirewallEnabled": {
       "value": true
