@@ -38,7 +38,31 @@ az deployment group create --name $NAME --resource-group $GROUP --template-file 
 $TEMPLATEFILE="infra-as-code/bicep/orchestration/mgDiagSettingsAll/mgDiagSettingsAll.bicep"
 $PARAMETERS="@infra-as-code/bicep/orchestration/mgDiagSettingsAll/parameters/mgDiagSettingsAll.parameters.all_mrexample.json"
 $LOCATION="canadacentral"
-$MGPREFIX="mralzex"
+$TopLevelMGPrefix="mralzex"
 
-az deployment mg create --template-file $TEMPLATEFILE --parameters $PARAMETERS --location $LOCATION --management-group-id $MGPREFIX
+az deployment mg create --template-file $TEMPLATEFILE --parameters $PARAMETERS --location $LOCATION --management-group-id $TopLevelMGPrefix
+```
+
+## STEP 5 Network
+
+```
+# Set Platform connectivity subscription ID as the the current subscription
+$ConnectivitySubscriptionId="8ec5ae04-56b8-4438-b436-ad88abe580dd"
+
+az account set --subscription $ConnectivitySubscriptionId
+
+# Set the top level MG Prefix in accordance to your environment. This example assumes default 'alz'.
+$TopLevelMGPrefix="mralzex"
+
+$dateYMD=$(Get-Date -Format "yyyyMMddTHHmmss")
+$NAME="alz-HubNetworkingDeploy-${dateYMD}"
+$GROUP="rg-$TopLevelMGPrefix-hub-networking-001"
+$TEMPLATEFILE="infra-as-code/bicep/modules/hubNetworking/hubNetworking.bicep"
+$PARAMETERS="@infra-as-code/bicep/modules/hubNetworking/parameters/hubNetworking.parameters.all_mrexample.json"
+$LOCATION="canadacentral"
+
+az group create --location $LOCATION --name $GROUP
+
+az deployment group create --name $NAME --resource-group $GROUP --template-file $TEMPLATEFILE --parameters $PARAMETERS
+
 ```
