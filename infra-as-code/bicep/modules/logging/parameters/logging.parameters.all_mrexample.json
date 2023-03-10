@@ -1,0 +1,51 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "parLogAnalyticsWorkspaceName": {
+      "value": "mralzex-log-analytics"
+    },
+    "parLogAnalyticsWorkspaceLocation": {
+      "value": "canadacentral"
+    },
+    "parLogAnalyticsWorkspaceSkuName": {
+      "value": "PerGB2018"
+    },
+    "parLogAnalyticsWorkspaceLogRetentionInDays": {
+      "value": 365
+    },
+    "parLogAnalyticsWorkspaceSolutions": {
+      "value": [
+        "AgentHealthAssessment",
+        "AntiMalware",
+        "ChangeTracking",
+        "Security",
+        "SecurityInsights",
+        "ServiceMap",
+        "SQLAdvancedThreatProtection",
+        "SQLVulnerabilityAssessment",
+        "SQLAssessment",
+        "Updates",
+        "VMInsights"
+      ]
+    },
+    "parAutomationAccountName": {
+      "value": "mralzex-automation-account"
+    },
+    "parAutomationAccountLocation": {
+      "value": "canadacentral"
+    },
+    "parAutomationAccountUseManagedIdentity": {
+      "value": true
+    },
+    "parTags": {
+      "value": {
+        "Environment": "POC", 
+        "Test" : "test"
+      }
+    },
+    "parTelemetryOptOut": {
+      "value": false
+    }
+  }
+}
